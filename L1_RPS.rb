@@ -7,20 +7,20 @@
 
 require 'pry'
 
-CHOICES = {'r' => 'rock', 'p' => 'paper', 's' => 'scissors'}
+CHOICES = {'r' => 'Rock', 'p' => 'Paper', 's' => 'Scissors'}
 
 puts "***** Welcome to Rock, Paper, Scissors! Can you beat the computer? *****"
 
 #method to compare choices and evaluate a winner
-def compare_choices pchoice, cchoice
+def compare_choices player_choice, computer_choice
 
-  if pchoice == cchoice 
+  if player_choice == computer_choice 
     puts "Tie! Try again!"
   else
 
     win = "You win!"
 
-    case [pchoice, cchoice]
+    case [player_choice, computer_choice]
     when ['r','s']
       puts "Rock beats scissors! #{win}"
     when ['p','r']
@@ -28,7 +28,7 @@ def compare_choices pchoice, cchoice
     when ['s','p']
       puts "Scissors beats paper! #{win}"
     else 
-      puts "Computer kicked your behind!"
+      puts "Computer kicked your behind! "+ CHOICES[computer_choice]+ " beats "+ CHOICES[player_choice]+"!"
 
     end
 
@@ -43,13 +43,14 @@ loop do
     begin 
 
       puts "***** Enter (r, p, or s) for rock, paper, or scissors. *****"
-      player_choice = gets.chomp.downcase
+      player_choice = gets.chomp.downcase.to_s
+      puts "You chose #{CHOICES[player_choice]}"
 
     end until CHOICES.keys.include?(player_choice)
 
     #get computer choice
-    computer_choice = CHOICES.keys.sample
-    puts "#{computer_choice}"
+    computer_choice = CHOICES.keys.sample.to_s
+    puts "Computer chose #{CHOICES[computer_choice]}"
 
     #compare the choices
     compare_choices(player_choice, computer_choice)
