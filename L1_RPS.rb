@@ -1,9 +1,7 @@
 #Lesson One Rock Paper Scissors App
 #Created by George Albrecht
-#8-31-2015
-#Initial Version
-#Need to output exactly what was chosen, the value from the CHOICES hash, not just the input
-#In conjunction with above point, want to prevent the gets method from returning the value and instead return the key from the hash (mentioned above)
+#9-1-2015
+#Updated Version
 
 require 'pry'
 
